@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Appointment - Sakthi Dental Clinic</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* Appointment Form */
+.appointment-section {
+    max-width: 500px;
+    margin: 3rem auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+.appointment-section h1 {
+    text-align: center;
+    color: #0066cc;
+    margin-bottom: 1.5rem;
+}
+.appointment-section input,
+.appointment-section button {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+.appointment-section button {
+    background: #0066cc;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.appointment-section button:hover {
+    background: #004b99;
+}
+
+/* Confirmation Success Card */
+.confirmation {
+    display: none;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.1);
+    animation: fadeInScale 0.6s ease forwards;
+}
+.confirmation h2 {
+    color: #28a745;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+.confirmation p {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Animated Checkmark */
+.checkmark {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 4px solid #28a745;
+    position: relative;
+    animation: popIn 0.5s ease;
+}
+.checkmark::after {
+    content: "";
+    position: absolute;
+    left: 22px;
+    top: 15px;
+    width: 20px;
+    height: 40px;
+    border-right: 4px solid #28a745;
+    border-bottom: 4px solid #28a745;
+    transform: rotate(45deg);
+    animation: drawCheck 0.6s ease forwards;
+}
+
+/* Error Card */
+.error-card {
+    display: none;
+    background: #ff4d4d;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    animation: slideDown 0.5s ease forwards;
+}
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Animations */
+@keyframes fadeInScale {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+@keyframes popIn {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+@keyframes drawCheck {
+    0% { height: 0; width: 0; }
+    100% { height: 40px; width: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Navigation ===== -->
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="treatment.html">Treatments</a></li>
+        <li><a href="services.html">Services & Prices</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="policy.html">Privacy Policy</a></li>
+    </ul>
+</nav>
+
+<!-- ===== Appointment Form ===== -->
+<section class="appointment-section">
+    <h1>Fix an Appointment</h1>
+
+    <!-- Error Message -->
+    <div class="error-card" id="errorBox"></div>
+   <form id="appointmentForm" action="https://formspree.io/f/xdkdvnbp" method="POST" onsubmit="return fixAppointment(event)">
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+        <input type="email" id="email" name="email" placeholder="Email Address" required>
+        <label for="date">Preferred Date:</label>
+        <input type="date" id="date" name="date" required>
+        <label for="time">Preferred Time:</label>
+        <input type="time" id="time" name="time" required>
+        <button type="submit">Fix Appointment</button>  
+    </form>
+
+    
+
+    <div class="confirmation" id="confirmationBox">
+        <div class="checkmark"></div>
+        <h2>Appointment Confirmed!</h2>
+        <p>Thank you, <span id="patientName"></span>.</p>
+        <p>Your appointment is fixed for:</p>
+        <p><strong>Date:</strong> <span id="apptDate"></span></p>
+        <p><strong>Time:</strong> <span id="apptTime"></span></p>
+    </div>
+</section>
+
+<script>
+let bookedSlots = {};  
+
+function showError(message) {
+    let errorBox = document.getElementById("errorBox");
+    errorBox.innerText = message;
+    errorBox.style.display = "block";
+    setTimeout(() => {
+        errorBox.style.display = "none";
+    }, 4000);
+}
+
+function fixAppointment(event) {
+    event.preventDefault(); // stop default submission
+
+    let name = document.getElementById("name").value.trim();
+    let date = document.getElementById("date").value;
+    let time = document.getElementById("time").value;
+
+    if (!name || !date || !time) {
+        showError("Please fill in all required fields!");
+        return false;
+    }
+
+    let selectedDate = new Date(date);
+    if (selectedDate.getDay() === 0) { // Sunday
+        showError("Sunday is a holiday. Please choose another date.");
+        return false;
+    }
+
+    let [hour, minute] = time.split(":").map(Number);
+    let totalMinutes = hour * 60 + minute;
+    let startMinutes = 9 * 60;
+    let endMinutes = 20 * 60;
+
+    if (totalMinutes < startMinutes || totalMinutes > endMinutes) {
+        showError("Shop closed during this period. Please select a time between 9:00 AM and 8:00 PM.");
+        return false;
+    }
+
+    let dateKey = date;
+    if (!bookedSlots[dateKey]) bookedSlots[dateKey] = [];
+
+    let conflict = bookedSlots[dateKey].some(slot => Math.abs(slot - totalMinutes) < 30);
+    if (conflict) {
+        showError(`The ${time} slot is already booked. Please choose another time.`);
+        return false;
+    }
+
+    bookedSlots[dateKey].push(totalMinutes);
+
+    // Show confirmation
+    document.getElementById("patientName").innerText = name;
+    document.getElementById("apptDate").innerText = date;
+    document.getElementById("apptTime").innerText = time;
+    document.getElementById("confirmationBox").style.display = "block";
+    document.getElementById("appointmentForm").style.display = "none";
+
+    // Submit to Formspree
+    event.target.submit();
+}
+
+</script>
+
+
+</body>
+</html>

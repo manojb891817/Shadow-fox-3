@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sakthi Dental Clinic</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Link to Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" 
+    rel="stylesheet" 
+  />
+</head>
+<body>
+
+  <!-- HEADER / NAVIGATION -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <img src="SDC logo.png" alt="Sakthi Dental Clinic Logo" />
+      </a>
+
+      <!-- Navigation Menu -->
+      <nav class="site-nav" id="siteNav">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="treatments.html">Treatments</a></li>
+          <li><a href="services.html" >Services & Prices</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="policy.html">Privacy Policy</a></li>
+        </ul>
+      </nav>
+
+      <!-- Call-to-Action Button -->
+      <a href="appointment.html" class="btn">Fix an Appointment</a>
+
+
+      <!-- Mobile Menu Toggle -->
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <section class="hero-slider">
+        <div class="slide active" style="background-image: url('Banner-Img-3.jpg');">
+            <div class="hero-text">
+                <h1>Welcome to Sakthi Dental Clinic</h1>
+                <p>Your smile is our priority</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('Banner-Img-1.jpg');">
+            <div class="hero-text">
+                <h1>Advanced Dental Treatments</h1>
+                <p>Modern care for a healthier smile</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('assets/images/Banner-Img-3.jpg');">
+            <div class="hero-text">
+                <h1>Experienced Dental Professionals</h1>
+                <p>Providing quality care you can trust</p>
+            </div>
+        </div>
+    </section>
+
+
+  <!-- ASSURANCE BANNER -->
+<section class="assurance-banner">
+  <div class="container">
+    <p>🦷 You are always in safe hands — ready to help anytime.</p>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why-choose-us container">
+  <h2>Why Choose Sakthi Dental Clinic?</h2>
+  <div class="choose-grid">
+    <div class="choose-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2927/2927190.png" alt="Experience icon">
+      <h3>20+ Years of Experience</h3>
+      <p>Delivering trusted dental care to women, children, and families since 2004.</p>
+    </div>
+    <div class="choose-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2947/2947971.png" alt="Technology icon">
+      <h3>Modern Technology</h3>
+      <p>Using advanced tools and pain-free procedures for your comfort and safety.</p>
+    </div>
+    <div class="choose-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png" alt="Friendly staff icon">
+      <h3>Friendly & Caring Staff</h3>
+      <p>Our team ensures every visit is comfortable, stress-free, and welcoming.</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- MAIN CONTENT PLACEHOLDER -->
+  <main>
+    <section class="intro container">
+      <h2>Welcome to Sakthi Dental Clinic</h2>
+      <p>Providing quality dental care for over 20 years in Salem, Tamil Nadu. We focus on comfort, safety, and the latest technology for all patients.</p>
+    </section>
+  </main>
+
+  <!-- ===== Testimonials Section ===== -->
+<section class="testimonials">
+    <h2>What Our Patients Say</h2>
+    <div class="testimonial-container">
+        <div class="testimonial">
+            <p>"Dr. Anupriya is so caring and professional. She explained every step of my treatment and made me feel comfortable. Highly recommend!"</p>
+            <div class="patient-info">
+                <img src="Priya.S.jpg" alt="Patient 1">
+                <h4>Priya S.</h4>
+            </div>
+        </div>
+
+        <div class="testimonial">
+            <p>"The clinic is spotless and modern. I had my teeth whitening done and the results were amazing!"</p>
+            <div class="patient-info">
+                <img src="Rahul.K.jpg" alt="Patient 2">
+                <h4>Rahul K.</h4>
+            </div>
+        </div>
+
+        <div class="testimonial">
+            <p>"Best dental experience I've had in years. The staff is friendly and the treatments are painless."</p>
+            <div class="patient-info">
+                <img src="Meena.jpg" alt="Patient 3">
+                <h4>Meena R.</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; 2025 Sakthi Dental Clinic. All Rights Reserved.</p>
+      <p><a href="privacy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+  <script>
+    // Mobile Navigation Toggle
+    document.getElementById('navToggle').addEventListener('click', function(){
+      document.getElementById('siteNav').classList.toggle('open');
+    });
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+  AOS.init({
+    duration: 1000, // animation duration in ms
+    once: true      // animation runs only once
+  });
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,1130 @@
+/* ---------- Global Styles ---------- */
+:root {
+  --bg: #f8fbfb;
+  --lavender: #e0f2f1;
+  --accent: #ff6f61;
+  --dark: #2c3e50;
+  --muted: #546e7a;
+  --max-width: 1100px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ---------- Header / Nav ---------- */
+.site-header {
+  background: var(--lavender);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 0;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.site-nav a {
+  font-weight: 500;
+  padding: 0.3rem 0;
+  transition: color 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--accent);
+}
+
+.cta-btn {
+  background: var(--accent);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #e85d50;
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: url('Banner-Img-1.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  border: 2px solid white;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-primary:hover {
+  background: #e85d50;
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: white;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--lavender);
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+.site-footer p {
+  margin: 0.3rem 0;
+  color: var(--muted);
+}
+
+.site-footer a {
+  color: var(--dark);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: var(--lavender);
+    width: 200px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .site-nav.open {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+    color: var(--dark);
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ---------- Assurance Banner ---------- */
+.assurance-banner {
+  background: var(--accent);
+  color: white;
+  text-align: center;
+  padding: 0.7rem 1rem;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* ---------- Why Choose Us ---------- */
+.why-choose-us {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.why-choose-us h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.choose-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.choose-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.choose-card img {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+
+.choose-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+}
+
+.choose-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.choose-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Treatments Page Banner */
+.page-banner.treatments {
+  background: url('img-2.jpg') center/cover no-repeat;
+  color: white;
+  padding: 5rem 1rem;
+  text-align: center;
+  position: relative;
+}
+.page-banner.treatments::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+.page-banner.treatments h1 {
+  position: relative;
+  z-index: 1;
+  font-size: 2.5rem;
+}
+
+/* ===== Reset & Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f6f9fc;
+  color: #333;
+}
+
+/* ===== Navbar ===== */
+nav {
+  background: #00838f;
+  padding: 10px 0;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #ffcc80;
+}
+
+/* ===== Treatments Section ===== */
+.treatments-section {
+  background: linear-gradient(135deg, #f6f9fc, #e8f5f5);
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.treatments-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #222;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.treatments-container {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem;
+}
+
+.treatments-container::-webkit-scrollbar {
+  height: 8px;
+}
+.treatments-container::-webkit-scrollbar-thumb {
+  background: #90a4ae;
+  border-radius: 4px;
+}
+.treatments-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.treatment-card {
+  flex: 0 0 auto;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  width: 200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.treatment-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+  transition: transform 0.4s ease;
+}
+
+.treatment-card h3 {
+  padding: 1rem;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.treatment-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.treatment-card:hover img {
+  transform: scale(1.08);
+}
+
+.treatment-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.treatment-card:hover::before {
+  opacity: 1;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .treatment-card {
+    width: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .treatment-card {
+    width: 140px;
+  }
+  .treatment-card img {
+    height: 120px;
+  }
+}
+
+/* ===== Page Banner for Contact ===== */
+.page-banner.contact {
+    background: url('Banner-Img-3.jpg') center/cover no-repeat;
+    color: white;
+    padding: 4rem 1rem;
+    text-align: center;
+    position: relative;
+}
+.page-banner.contact::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+}
+.page-banner.contact h1,
+.page-banner.contact p {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== Contact Info ===== */
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+    background: #f0f5f5;
+}
+.info-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-align: center;
+    flex: 1 1 200px;
+}
+.info-item a {
+    color: #00838f;
+    text-decoration: none;
+}
+.info-item a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Contact Form ===== */
+.contact-form-section {
+    padding: 2rem;
+    text-align: center;
+}
+.contact-form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.contact-form input,
+.contact-form textarea {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+.contact-form button {
+    background: #00838f;
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.contact-form button:hover {
+    background: #006972;
+}
+
+/* ===== Form Status Message ===== */
+#formStatus {
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+/* ===== Map Section ===== */
+.map-section iframe {
+    border: 0;
+}
+
+/* ===== About Banner ===== */
+.page-banner.about {
+    background: url('Banner-Img-1.jpg') center/cover no-repeat;
+    color: white;
+    padding: 6rem 1rem; /* More space for banner */
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 300px;
+    overflow: hidden;
+}
+.page-banner.about::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    transition: background 0.3s ease-in-out;
+}
+.page-banner.about:hover::before {
+    background: rgba(0, 0, 0, 0.3);
+}
+.page-banner.about h1,
+.page-banner.about p {
+    position: relative;
+    z-index: 1;
+    animation: fadeInDown 1s ease forwards;
+}
+.page-banner.about h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+.page-banner.about p {
+    font-size: 1.3rem;
+}
+
+/* ===== Global Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #fdfdfd;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ===== Navigation ===== */
+.navbar {
+    background-color: #00838f;
+    color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.navbar .container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #fff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #ffcc80;
+}
+
+/* ===== About Banner ===== */
+.page-banner.about {
+    background: url('Banner-Img-1.jpg') center/cover no-repeat;
+    color: white;
+    padding: 6rem 1rem;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 300px;
+    overflow: hidden;
+}
+
+.page-banner.about::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    transition: background 0.3s ease-in-out;
+}
+
+.page-banner.about:hover::before {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.page-banner.about h1,
+.page-banner.about p {
+    position: relative;
+    z-index: 1;
+    animation: fadeInDown 1s ease forwards;
+}
+
+.page-banner.about h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-banner.about p {
+    font-size: 1.3rem;
+}
+
+/* ===== About Section ===== */
+.about-section {
+    padding: 3rem 1rem;
+    text-align: center;
+    background: #f0f5f5;
+}
+
+.about-section h2 {
+    margin-bottom: 1.5rem;
+    color: #00838f;
+    font-size: 2rem;
+}
+
+.about-section p {
+    max-width: 800px;
+    margin: auto;
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* ===== Doctor Profile ===== */
+.doctor-profile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    padding: 3rem 1rem;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+
+.doctor-profile img {
+    width: 280px;
+    height: 280px;
+    object-fit: contain;   /* Option 1: full image visible */
+    border-radius: 50%;
+    border: 5px solid #00838f;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    background-color: #f0f0f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doctor-profile img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.doctor-info {
+    max-width: 500px;
+    text-align: left;
+}
+
+.doctor-info h2 {
+    color: #00838f;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.doctor-info p {
+    margin-bottom: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ===== Mission & Vision ===== */
+.mission-vision {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 3rem 1rem;
+    background: #e8f5f5;
+    justify-content: center;
+}
+
+.mission, .vision {
+    flex: 1 1 300px;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mission:hover, .vision:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.mission h3, .vision h3 {
+    color: #00838f;
+    margin-bottom: 1rem;
+}
+
+.mission p, .vision p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Responsive ===== */
+@media(max-width: 900px) {
+    .doctor-profile {
+        flex-direction: column;
+        text-align: center;
+    }
+    .doctor-info {
+        text-align: center;
+    }
+    .mission-vision {
+        flex-direction: column;
+    }
+}
+
+/* ===== Hero Slider ===== */
+.hero-slider {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+}
+.slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.slide.active {
+    opacity: 1;
+}
+.hero-text {
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+.hero-text h1 {
+    font-size: 2.5rem;
+}
+.hero-text p {
+    font-size: 1.2rem;
+}
+
+/* ===== Testimonials Section ===== */
+.testimonials {
+    background: #f0f5f5;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+.testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+.testimonial-container {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1rem;
+}
+.testimonial {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+}
+.testimonial p {
+    font-style: italic;
+    color: #555;
+}
+.patient-info {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 0.8rem;
+}
+.patient-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.patient-info h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* ===== Services Banner ===== */
+.page-banner.services {
+    background: url('Banner-Img-3.jpg') center/cover no-repeat;
+    color: white;
+    padding: 5rem 1rem;
+    text-align: center;
+    position: relative;
+}
+.page-banner.services::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+.page-banner.services h1,
+.page-banner.services p {
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+/* ===== Services Table ===== */
+.services-table {
+    padding: 2rem;
+    background: linear-gradient(135deg, #f0f4f8, #e0f2f1);
+}
+.services-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.services-table th, .services-table td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    text-align: left;
+}
+.services-table th {
+    background: #00838f;
+    color: white;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+.services-table tr:hover {
+    background: rgba(0, 131, 143, 0.05);
+    transition: background 0.3s ease-in-out;
+}
+.services-table td {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* ===== Responsive Table ===== */
+@media (max-width: 768px) {
+    .services-table table, 
+    .services-table thead, 
+    .services-table tbody, 
+    .services-table th, 
+    .services-table td, 
+    .services-table tr {
+        display: block;
+        width: 100%;
+    }
+    .services-table tr {
+        margin-bottom: 1rem;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .services-table td {
+        padding-left: 50%;
+        position: relative;
+        border-bottom: none;
+    }
+    .services-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        font-weight: bold;
+        color: #00838f;
+    }
+}
+
+/* ===== Policy Banner ===== */
+.page-banner.policy {
+    background: url('img-2.jpg') center/cover no-repeat;
+    padding: 5rem 1rem;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+.page-banner.policy::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to bottom right, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+    z-index: 0;
+}
+.page-banner.policy .banner-content {
+    position: relative;
+    z-index: 1;
+}
+.page-banner.policy h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+.page-banner.policy p {
+    font-size: 1.2rem;
+    color: #f1f1f1;
+}
+
+/* ===== Policy Content ===== */
+.policy-content {
+    background: #f0f5f5;
+    padding: 3rem 1rem;
+}
+.policy-content .container {
+    max-width: 1000px;
+    margin: auto;
+}
+.policy-card {
+    background: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.policy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+}
+.policy-card h2 {
+    color: #00838f;
+    margin-bottom: 1rem;
+}
+.policy-card p,
+.policy-card ul {
+    color: #333;
+    line-height: 1.6;
+}
+.policy-card ul {
+    padding-left: 1.5rem;
+}
+
+/* ===== Links ===== */
+.policy-card a {
+    color: #00838f;
+    text-decoration: none;
+}
+.policy-card a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff6f61, #ff8a65);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #ff8a65, #ff6f61);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.btn:active {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Error Card */
+.error-card {
+    display: none;
+    background: #ff4d4d;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    animation: slideDown 0.5s ease forwards;
+}
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Mobile Hero Fix ===== */
+@media (max-width: 768px) {
+  .hero-slider .slide {
+    height: auto;               /* removes forced full screen zoom */
+    aspect-ratio: 4/3;          /* keeps image in proportion */
+    background-size: cover;     /* neatly fills container */
+    background-position: center;
+  }
+
+  .hero-text h1 {
+    font-size: 1.4rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+}
+
+/* ===== Mobile Navigation Styles ===== */
+@media (max-width: 768px) {
+  .site-nav {
+    display: none; /* hidden by default */
+    position: absolute;
+    top: 70px; /* below header */
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 0 0 12px 12px;
+    overflow: hidden;
+    z-index: 999;
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  .site-nav.open {
+    display: block; /* show when toggled */
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .site-nav ul li {
+    margin: 0.8rem 0;
+  }
+
+  .site-nav ul li a {
+    font-size: 1.1rem;
+    color: #333;
+    padding: 0.6rem 1rem;
+    display: block;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .site-nav ul li a:hover {
+    background: #00838f;
+    color: #fff;
+    border-radius: 6px;
+  }
+}
+
+/* Slide-down animation */
+@keyframes slideDown {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
